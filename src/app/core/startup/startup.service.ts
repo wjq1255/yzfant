@@ -62,8 +62,8 @@ export class StartupService {
     // }
     // mock
     const app: any = {
-      name: `ng-alain`,
-      description: `Ng-zorro admin panel front-end framework`
+      name: `云账房`,
+      description: `一键报税，高效专业的互联网代账平台！`
     };
     const user: any = {
       name: 'Admin',
@@ -79,23 +79,71 @@ export class StartupService {
     this.aclService.setFull(true);
     // 初始化菜单
     this.menuService.add([
-      {
-        text: '主导航',
-        group: true,
-        children: [
           {
-            text: '仪表盘',
-            link: '/dashboard',
-            icon: 'anticon anticon-appstore-o'
+            text:'首页',
+            icon:'anticon anticon-home'
           },
           {
-            text: '快捷菜单',
-            icon: 'anticon anticon-rocket',
-            shortcut_root: true
+            text: '基础设置',
+            icon: 'anticon anticon-appstore-o',
+            children: [
+              {
+                text: '平台指标管理',
+                link: '/dashboard'
+              },
+              {
+                text: '企业指标管理',
+                link: '/sys/log'
+              }
+            ]
+          },
+          {
+            text: '风险预警',
+            icon: 'anticon anticon-appstore-o',
+            children: [
+              {
+                text: '已触发预警',
+                link: '/dashboard'
+              },
+              {
+                text: '风险预警',
+                link: '/sys/log'
+              }
+            ]
+          },
+          {
+            text: '报表分析',
+            icon: 'anticon anticon-appstore-o',
+            children: [
+              {
+                text: '经营状况表',
+                link: '/dashboard'
+              },
+              {
+                text: '应收账款统计表',
+                link: '/sys/log'
+              },
+              {
+                text: '账龄分析',
+                link: '/sys/log'
+              },
+              {
+                text: '费用统计',
+                link: '/sys/log'
+              }
+            ]
+          },
+          {
+            text: '财税体检',
+            icon: 'anticon anticon-appstore-o',
+            children: [
+              {
+                text: '财税体检',
+                link: '/dashboard'
+              }
+            ]
           }
-        ]
-      }
-    ]);
+        ]);
     // 设置页面标题的后缀
     this.titleService.suffix = app.name;
 
@@ -107,9 +155,9 @@ export class StartupService {
     // https://github.com/angular/angular/issues/15088
     return new Promise((resolve, reject) => {
       // http
-      // this.viaHttp(resolve, reject);
+      this.viaHttp(resolve, reject);
       // mock：请勿在生产环境中这么使用，viaMock 单纯只是为了模拟一些数据使脚手架一开始能正常运行
-      this.viaMock(resolve, reject);
+      // this.viaMock(resolve, reject);
     });
   }
 }

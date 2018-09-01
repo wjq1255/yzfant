@@ -1,4 +1,4 @@
-<div class="wrapper">
+<!-- <div class="wrapper">
   <div class="router-progress-bar" *ngIf="isFetching"></div>
   <layout-header class="header"></layout-header>
   <layout-sidebar class="aside"></layout-sidebar>
@@ -6,4 +6,17 @@
     <reuse-tab></reuse-tab>
     <router-outlet></router-outlet>
   </section>
+</div> -->
+<div class="wrapper">
+  <div class="router-progress-bar" *ngIf="isFetching"></div>
+  <nz-layout>
+    <layout-sidebar class="aside"></layout-sidebar>
+    <nz-layout>
+      <layout-header class="header"></layout-header>
+      <section class="content">
+        <reuse-tab></reuse-tab>
+        <router-outlet></router-outlet>
+      </section>
+    </nz-layout>
+  </nz-layout>
 </div>

@@ -46,6 +46,14 @@ const routes: Routes = [
       { path: 'register-result', component: UserRegisterResultComponent, data: { title: '注册结果', titleI18n: 'pro-register-result' } }
     ]
   },
+  // 系统设置
+  {
+    path: '',
+    component: LayoutDefaultComponent,
+    children: [
+        { path: 'sys', loadChildren: './sys/sys.module#SysModule' }
+    ]
+  },
   // 单页不包裹Layout
   { path: 'callback/:type', component: CallbackComponent },
   { path: 'lock', component: UserLockComponent, data: { title: '锁屏', titleI18n: 'lock' } },
